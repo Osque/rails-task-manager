@@ -1,0 +1,18 @@
+<h1 class= "text-center">My tasks</h1>
+<div class="btn btn-success text-center"> <%= link_to "New task", task_new_path %> </div>
+<div class="card">
+
+<% @tasks.each do |task| %>
+<h3> <%= task.title %> </h3>
+
+<div class="btn btn-success"> <%= link_to "More details", task_path(task[:id]) %> </div>
+<div class="btn btn-success"> <%= link_to "Edit task", task_edit_path(task[:id]) %> </div>
+<div class="btn btn-danger"> <%= link_to "Delete task", task_delete_path(task[:id]),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %> </div>
+
+<hr>
+
+
+<% end %>
+</div>
